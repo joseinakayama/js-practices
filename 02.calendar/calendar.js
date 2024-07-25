@@ -17,11 +17,11 @@ const year = date.format("YYYY");
 console.log("      " + month + "月" + " " + year);
 console.log("日 月 火 水 木 金 土");
 
-const last_date = date.endOf("month").get("date");
-const first_day_of_month = date.startOf("month").get("day");
-const space = "   ".repeat(first_day_of_month);
+const lastDate = date.endOf("month").get("date");
+const firstdayOfMonth = date.startOf("month").get("day");
+const space = "   ".repeat(firstdayOfMonth);
 process.stdout.write("" + space);
-for (let i = 1; i <= last_date; i++) {
+for (let i = 1; i <= lastDate; i++) {
   const current = date.set("date", i);
   const weekday = current.get("day");
   process.stdout.write(String(i).padStart(2, " ") + " ");
