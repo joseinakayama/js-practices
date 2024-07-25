@@ -4,9 +4,12 @@ import minimist from "minimist";
 import dayjs from "dayjs";
 
 const argv = minimist(process.argv.slice(2));
+console.log(argv);
 let date = "";
-if (argv.m == null) {
+if (argv.m == null && argv.y == null) {
   date = dayjs();
+} else if (argv.m == null) {
+  date = dayjs(`2024- ${argv.m} `);
 } else if (argv.y == null) {
   date = dayjs(`2024- ${argv.m} `);
 } else {
@@ -29,3 +32,4 @@ for (let i = 1; i <= lastDate; i++) {
     process.stdout.write("\n");
   }
 }
+console.log("\n");
