@@ -4,12 +4,9 @@ import minimist from "minimist";
 import dayjs from "dayjs";
 
 const argv = minimist(process.argv.slice(2));
-console.log(argv);
 let date = "";
-if (argv.m == null && argv.y == null) {
+if (argv.m == null) {
   date = dayjs();
-} else if (argv.m == null) {
-  date = dayjs(`2024- ${argv.m} `);
 } else if (argv.y == null) {
   date = dayjs(`2024- ${argv.m} `);
 } else {
@@ -20,11 +17,11 @@ const year = date.format("YYYY");
 console.log("      " + month + "月" + " " + year);
 console.log("日 月 火 水 木 金 土");
 
-const lastDate = date.endOf("month").get("date");
-const firstdayOfMonth = date.startOf("month").get("day");
-const space = "   ".repeat(firstdayOfMonth);
+const lastDate = date.endOf("month");
+const firstdayOfMonth = date.startOf("month");
+const space = "   ".repeat(firstdayOfMonth.get("day"));
 process.stdout.write(String(space));
-for (let i = 1; i <= lastDate; i++) {
+for (let i = 1; i <= lastDate.get("date"); i++) {
   const current = date.set("date", i);
   const weekday = current.get("day");
   process.stdout.write(String(i).padStart(2, " ") + " ");
