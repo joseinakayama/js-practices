@@ -20,7 +20,7 @@ console.log("日 月 火 水 木 金 土");
 const lastDate = date.endOf("month").get("date");
 const firstdayOfMonth = date.startOf("month").get("day");
 const space = "   ".repeat(firstdayOfMonth);
-process.stdout.write("" + space);
+process.stdout.write(String(space));
 for (let i = 1; i <= lastDate; i++) {
   const current = date.set("date", i);
   const weekday = current.get("day");
