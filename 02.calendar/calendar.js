@@ -5,12 +5,12 @@ import dayjs from "dayjs";
 
 const argv = minimist(process.argv.slice(2));
 let date = "";
-if (argv["m"] == null) {
+if (argv.m == null) {
   date = dayjs();
-} else if (argv["y"] == null) {
-  date = dayjs("2024-" + argv["m"]);
+} else if (argv.y == null) {
+  date = dayjs("2024-" + argv.m);
 } else {
-  date = dayjs(argv["y"] + "-" + argv["m"]);
+  date = dayjs(argv.y + "-" + argv.m);
 }
 const month = date.format("M");
 const year = date.format("YYYY");
