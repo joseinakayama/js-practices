@@ -4,26 +4,22 @@ import minimist from "minimist";
 import dayjs from "dayjs";
 
 const argv = minimist(process.argv.slice(2));
-let month = null;
-let year = null;
-
 if (argv.m == null && argv.y == null) {
-  month = dayjs().month() + 1;
-  year = dayjs().year();
+  var month = dayjs().month() + 1;
+  var year = dayjs().year();
 } else if (argv.y == null) {
-  month = argv.m;
-  year = dayjs().year();
+  var month = argv.m;
+  var year = dayjs().year();
 } else if (argv.m == null) {
-  month = dayjs().month() + 1;
-  year = argv.y;
+  var month = dayjs().month() + 1;
+  var year = argv.y;
 } else {
-  month = argv.m;
-  year = argv.y;
+  var month = argv.m;
+  var year = argv.y;
 }
 
 console.log("      " + month + "月" + " " + year);
 console.log("日 月 火 水 木 金 土");
-
 const date = dayjs(`${year}-${month}`);
 const lastDate = date.endOf("month");
 const firstdayOfMonth = date.startOf("month");
