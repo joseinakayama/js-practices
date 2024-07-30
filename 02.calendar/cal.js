@@ -28,9 +28,11 @@ process.stdout.write(space);
 for (let i = 1; i <= lastDayOfMonth.get("date"); i++) {
   const currentDay = specifiedMonthAndYear.set("date", i);
   const dayOfWeek = currentDay.get("day");
-  process.stdout.write(String(i).padStart(2, " ") + " ");
-  if (dayOfWeek === 6) {
+  if (dayOfWeek === 6 || i === lastDayOfMonth.get("date")) {
+    process.stdout.write(String(i).padStart(2, " "));
     console.log();
+  } else {
+    process.stdout.write(String(i).padStart(2, " ") + " ");
   }
 }
 console.log();
