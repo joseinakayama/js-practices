@@ -18,7 +18,7 @@ if (argv.m == null && argv.y == null) {
   var year = argv.y;
 }
 
-console.log("      " + month + "月" + " " + year);
+console.log(`      ${month}月 ${year}`);
 console.log("日 月 火 水 木 金 土");
 const date = dayjs(`${year}-${month}`);
 const lastDate = date.endOf("month");
