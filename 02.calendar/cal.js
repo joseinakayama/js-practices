@@ -20,16 +20,16 @@ if (argv.m == null && argv.y == null) {
 
 console.log(`      ${month}月 ${year}`);
 console.log("日 月 火 水 木 金 土");
-const date = dayjs(`${year}-${month}`);
-const lastDate = date.endOf("month");
-const firstdayOfMonth = date.startOf("month");
-const space = "   ".repeat(firstdayOfMonth.get("day"));
+const specifiedMonthAndYear = dayjs(`${year}-${month}`);
+const lastDayOfMonth = specifiedMonthAndYear.endOf("month");
+const firstDayOfMonth = specifiedMonthAndYear.startOf("month");
+const space = "   ".repeat(firstDayOfMonth.get("day"));
 process.stdout.write(space);
-for (let i = 1; i <= lastDate.get("date"); i++) {
-  const current = date.set("date", i);
-  const weekday = current.get("day");
+for (let i = 1; i <= lastDayOfMonth.get("date"); i++) {
+  const currentDay = specifiedMonthAndYear.set("date", i);
+  const dayOfWeek = currentDay.get("day");
   process.stdout.write(String(i).padStart(2, " ") + " ");
-  if (weekday === 6) {
+  if (dayOfWeek === 6) {
     process.stdout.write("\n");
   }
 }
