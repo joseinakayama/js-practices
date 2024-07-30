@@ -24,7 +24,7 @@ const date = dayjs(`${year}-${month}`);
 const lastDate = date.endOf("month");
 const firstdayOfMonth = date.startOf("month");
 const space = "   ".repeat(firstdayOfMonth.get("day"));
-process.stdout.write(String(space));
+process.stdout.write(space);
 for (let i = 1; i <= lastDate.get("date"); i++) {
   const current = date.set("date", i);
   const weekday = current.get("day");
