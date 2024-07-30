@@ -30,7 +30,7 @@ for (let i = 1; i <= lastDayOfMonth.get("date"); i++) {
   const dayOfWeek = currentDay.get("day");
   process.stdout.write(String(i).padStart(2, " ") + " ");
   if (dayOfWeek === 6) {
-    process.stdout.write("\n");
+    console.log();
   }
 }
-console.log("\n");
+console.log();
